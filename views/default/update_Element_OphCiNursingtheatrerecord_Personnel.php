@@ -18,11 +18,10 @@
  ?>
 <div class="<?php echo $element->elementType->class_name?>">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-
-	<?php echo $form->dropDownList($element, 'scrub_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->dropDownList($element, 'floor_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->dropDownList($element, 'accompanying_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->dropDownList($element, 'surgeon_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->dropDownList($element, 'operating_department_practitioner_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->dropDownList($element, 'assistant_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','first_name'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'scrub_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'floor_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'accompanying_nurse_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'surgeon_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'operating_department_practitioner_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'assistant_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
 </div>

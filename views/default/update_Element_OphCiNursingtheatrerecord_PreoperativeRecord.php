@@ -17,10 +17,9 @@
  */
  ?>
 <div class="<?php echo $element->elementType->class_name?>">
-	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-
-	<?php echo $form->radioBoolean($element, 'change_of_medical_history_since_pre_operative_assessment')?>
-	<?php echo $form->textField($element, 'inr_level_if_applicable', array('size' => '3'))?>
-	<?php echo $form->radioBoolean($element, 'pre_operative_checklist_completed_and_filed_in_notes')?>
-	<?php echo $form->radioBoolean($element, 'cdj_checklist_completed_and_filed_in_notes')?>
+	<h4 class="elementTypeName"><?php echo $element->elementType->name?></h4>
+	<?php echo $form->checkBox($element, 'change_of_medical_history_since_pre_operative_assessment', array('text-align'=>'right'))?>
+	<?php echo $form->textField($element, 'inr_level_if_applicable', array('size' => 8))?>
+	<?php echo $form->checkBox($element, 'pre_operative_checklist_completed_and_filed_in_notes', array('text-align'=>'right'))?>
+	<?php echo $form->checkBox($element, 'cdj_checklist_completed_and_filed_in_notes', array('text-align'=>'right'))?>
 </div>

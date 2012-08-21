@@ -115,7 +115,7 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 'floor_nurse_id' => 'Floor nurse',
 'accompanying_nurse_id' => 'Accompanying nurse',
 'surgeon_id' => 'Surgeon',
-'operating_department_practitioner_id' => 'Operating department practitioner',
+'operating_department_practitioner_id' => 'Operating dpt practitioner',
 'assistant_id' => 'Assistant',
 		);
 	}
