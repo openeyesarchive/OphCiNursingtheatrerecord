@@ -87,7 +87,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'KEY `et_ophcinursingtheatrerecord_personnel_floor_nurse_id_fk` (`floor_nurse_id`)',
 				'KEY `et_ophcinursingtheatrerecord_personnel_accompanying_nurse_id_fk` (`accompanying_nurse_id`)',
 				'KEY `et_ophcinursingtheatrerecord_personnel_surgeon_id_fk` (`surgeon_id`)',
-				'KEY `et_ophcinursingtheatrerecord_o_operating_department_practitioner_id_fk` (`operating_department_practitioner_id`)',
+				'KEY `et_ophcinursingtheatrerecord_oopd_id_fk` (`operating_department_practitioner_id`)',
 				'KEY `et_ophcinursingtheatrerecord_personnel_assistant_id_fk` (`assistant_id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
@@ -96,7 +96,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_floor_nurse_id_fk` FOREIGN KEY (`floor_nurse_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_accompanying_nurse_id_fk` FOREIGN KEY (`accompanying_nurse_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_surgeon_id_fk` FOREIGN KEY (`surgeon_id`) REFERENCES `user` (`id`)',
-				'CONSTRAINT `et_ophcinursingtheatrerecord_o_operating_department_practitioner_id_fk` FOREIGN KEY (`operating_department_practitioner_id`) REFERENCES `user` (`id`)',
+				'CONSTRAINT `et_ophcinursingtheatrerecord_oopd_id_fk` FOREIGN KEY (`operating_department_practitioner_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_assistant_id_fk` FOREIGN KEY (`assistant_id`) REFERENCES `user` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
