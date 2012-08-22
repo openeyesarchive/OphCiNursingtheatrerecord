@@ -16,7 +16,11 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
  ?>
-<div class="<?php echo $element->elementType->class_name?>">
+<div class="element <?php echo $element->elementType->class_name?>"
+	data-element-type-id="<?php echo $element->elementType->id ?>"
+	data-element-type-class="<?php echo $element->elementType->class_name ?>"
+	data-element-type-name="<?php echo $element->elementType->name ?>"
+	data-element-display-order="<?php echo $element->elementType->display_order ?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name?></h4>
 	<?php echo $form->checkBox($element, 'change_of_medical_history_since_pre_operative_assessment', array('text-align'=>'right'))?>
 	<?php echo $form->textField($element, 'inr_level_if_applicable', array('size' => 8))?>
