@@ -23,6 +23,7 @@
 	data-element-display-order="<?php echo $element->elementType->display_order ?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name?></h4>
 	<?php echo $form->radioBoolean($element, 'change_of_medical_history_since_pre_operative_assessment')?>
+	<?php echo $form->textField($element, 'history_change_notes', array('hide'=>$element->notes_hidden))?>
 	<?php echo $form->textField($element, 'inr_level_if_applicable', array('size' => 8))?>
 	<?php echo $form->radioBoolean($element, 'pre_operative_checklist_completed_and_filed_in_notes')?>
 	<?php echo $form->radioBoolean($element, 'cdj_checklist_completed_and_filed_in_notes')?>

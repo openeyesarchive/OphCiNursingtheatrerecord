@@ -7,6 +7,12 @@
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('change_of_medical_history_since_pre_operative_assessment'))?>:</td>
 			<td><span class="big"><?php echo $element->change_of_medical_history_since_pre_operative_assessment ? 'Yes' : 'No'?></span></td>
 		</tr>
+		<?php if ($element->change_of_medical_history_since_pre_operative_assessment && $element->history_change_notes) {?>
+			<tr>
+				<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('history_change_notes'))?>:</td>
+				<td><span class="big"><?php echo $element->history_change_notes?></span></td>
+			</tr>
+		<?php }?>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('inr_level_if_applicable'))?></td>
 			<td><span class="big"><?php echo $element->inr_level_if_applicable?></span></td>

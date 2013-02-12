@@ -60,6 +60,15 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$('input[name="Element_OphCiNursingtheatrerecord_PreoperativeRecord[change_of_medical_history_since_pre_operative_assessment]"]').click(function() {
+		if ($('#Element_OphCiNursingtheatrerecord_PreoperativeRecord_change_of_medical_history_since_pre_operative_assessment_1').is(':checked')) {
+			$('#div_Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').show();
+			$('#Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').focus();
+		} else {
+			$('#div_Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').hide();
+		}
+	});
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }

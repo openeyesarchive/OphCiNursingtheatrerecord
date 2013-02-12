@@ -65,7 +65,7 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, change_of_medical_history_since_pre_operative_assessment, inr_level_if_applicable, pre_operative_checklist_completed_and_filed_in_notes, cdj_checklist_completed_and_filed_in_notes, ', 'safe'),
+			array('event_id, change_of_medical_history_since_pre_operative_assessment, inr_level_if_applicable, pre_operative_checklist_completed_and_filed_in_notes, cdj_checklist_completed_and_filed_in_notes, history_change_notes', 'safe'),
 			array('change_of_medical_history_since_pre_operative_assessment, inr_level_if_applicable, pre_operative_checklist_completed_and_filed_in_notes, cdj_checklist_completed_and_filed_in_notes, ', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -101,6 +101,7 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 			'inr_level_if_applicable' => 'INR level if applicable',
 			'pre_operative_checklist_completed_and_filed_in_notes' => 'Preoperative checklist completed and filed in notes',
 			'cdj_checklist_completed_and_filed_in_notes' => 'CDJ checklist completed and filed in notes',
+			'history_change_notes' => 'History change notes',
 		);
 	}
 
@@ -125,6 +126,16 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
+	}
+
+	public function getNotes_hidden() {
+		if (!empty($_POST)) {
+			return !@$_POST['Element_OphCiNursingtheatrerecord_PreoperativeRecord']['change_of_medical_history_since_pre_operative_assessment'];
+		} else if ($this->id) {
+			return !$this->change_of_medical_history_since_pre_operative_assessment;
+		}
+
+		return true;
 	}
 }
 ?>
