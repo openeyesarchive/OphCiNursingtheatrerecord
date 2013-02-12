@@ -97,10 +97,10 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-'change_of_medical_history_since_pre_operative_assessment' => 'Change of medical history since preoperative assessment',
-'inr_level_if_applicable' => 'INR level if applicable',
-'pre_operative_checklist_completed_and_filed_in_notes' => 'Preoperative checklist completed and filed in notes',
-'cdj_checklist_completed_and_filed_in_notes' => 'CDJ checklist completed and filed in notes',
+			'change_of_medical_history_since_pre_operative_assessment' => 'Change of history since preop assessment',
+			'inr_level_if_applicable' => 'INR level if applicable',
+			'pre_operative_checklist_completed_and_filed_in_notes' => 'Preoperative checklist completed and filed in notes',
+			'cdj_checklist_completed_and_filed_in_notes' => 'CDJ checklist completed and filed in notes',
 		);
 	}
 
@@ -117,40 +117,14 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('event_id', $this->event_id, true);
-
-$criteria->compare('change_of_medical_history_since_pre_operative_assessment', $this->change_of_medical_history_since_pre_operative_assessment);
-$criteria->compare('inr_level_if_applicable', $this->inr_level_if_applicable);
-$criteria->compare('pre_operative_checklist_completed_and_filed_in_notes', $this->pre_operative_checklist_completed_and_filed_in_notes);
-$criteria->compare('cdj_checklist_completed_and_filed_in_notes', $this->cdj_checklist_completed_and_filed_in_notes);
+		$criteria->compare('change_of_medical_history_since_pre_operative_assessment', $this->change_of_medical_history_since_pre_operative_assessment);
+		$criteria->compare('inr_level_if_applicable', $this->inr_level_if_applicable);
+		$criteria->compare('pre_operative_checklist_completed_and_filed_in_notes', $this->pre_operative_checklist_completed_and_filed_in_notes);
+		$criteria->compare('cdj_checklist_completed_and_filed_in_notes', $this->cdj_checklist_completed_and_filed_in_notes);
 		
 		return new CActiveDataProvider(get_class($this), array(
-				'criteria' => $criteria,
-			));
-	}
-
-	/**
-	 * Set default values for forms on create
-	 */
-	public function setDefaultOptions()
-	{
-	}
-
-
-
-	protected function beforeSave()
-	{
-		return parent::beforeSave();
-	}
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
-	}
-
-	protected function beforeValidate()
-	{
-		return parent::beforeValidate();
+			'criteria' => $criteria,
+		));
 	}
 }
 ?>
