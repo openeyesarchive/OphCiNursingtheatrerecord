@@ -17,7 +17,7 @@
  */
 
 /**
- * This is the model class for table "et_ophcinursingtheatrerecord_preoperativerecord".
+ * This is the model class for table "et_ophcinursingtheatrerecord_dayofoperation".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -36,7 +36,7 @@
  * @property User $usermodified
  */
 
-class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventTypeElement
+class Element_OphCiNursingtheatrerecord_DayOfOperation extends BaseEventTypeElement
 {
 	public $service;
 
@@ -54,7 +54,7 @@ class Element_OphCiNursingtheatrerecord_PreoperativeRecord extends BaseEventType
 	 */
 	public function tableName()
 	{
-		return 'et_ophcinursingtheatrerecord_preoperativerecord';
+		return 'et_ophcinursingtheatrerecord_dayofoperation';
 	}
 
 	/**
