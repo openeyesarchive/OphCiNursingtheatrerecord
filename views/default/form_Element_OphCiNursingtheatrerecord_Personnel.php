@@ -28,4 +28,5 @@
 	<?php echo $form->dropDownList($element, 'surgeon_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->dropDownList($element, 'operating_department_practitioner_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->dropDownList($element, 'assistant_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'anaesthetist_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc')),'id','fullName'),array('empty'=>'- Please select -'))?>
 </div>

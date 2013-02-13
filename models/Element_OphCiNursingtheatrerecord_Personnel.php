@@ -73,11 +73,11 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, ', 'safe'),
-			array('scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, ', 'required'),
+			array('event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'safe'),
+			array('scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, ', 'safe', 'on' => 'search'),
+			array('id, event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -100,6 +100,7 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 			'surgeon' => array(self::BELONGS_TO, 'User', 'surgeon_id'),
 			'operating_department_practitioner' => array(self::BELONGS_TO, 'User', 'operating_department_practitioner_id'),
 			'assistant' => array(self::BELONGS_TO, 'User', 'assistant_id'),
+			'anaesthetist' => array(self::BELONGS_TO, 'User', 'anaesthetist_id'),
 		);
 	}
 
@@ -111,12 +112,13 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-'scrub_nurse_id' => 'Scrub nurse',
-'floor_nurse_id' => 'Floor nurse',
-'accompanying_nurse_id' => 'Accompanying nurse',
-'surgeon_id' => 'Surgeon',
-'operating_department_practitioner_id' => 'Operating dpt practitioner',
-'assistant_id' => 'Assistant',
+			'scrub_nurse_id' => 'Scrub nurse',
+			'floor_nurse_id' => 'Floor nurse',
+			'accompanying_nurse_id' => 'Accompanying nurse',
+			'surgeon_id' => 'Surgeon',
+			'operating_department_practitioner_id' => 'Operating dpt practitioner',
+			'assistant_id' => 'Assistant',
+			'anaesthetist_id' => 'Anaesthetist',
 		);
 	}
 
