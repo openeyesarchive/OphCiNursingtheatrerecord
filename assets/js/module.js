@@ -61,12 +61,28 @@ $(document).ready(function() {
 		}
 	});
 
-	$('input[name="Element_OphCiNursingtheatrerecord_PreoperativeRecord[change_of_medical_history_since_pre_operative_assessment]"]').click(function() {
-		if ($('#Element_OphCiNursingtheatrerecord_PreoperativeRecord_change_of_medical_history_since_pre_operative_assessment_1').is(':checked')) {
-			$('#div_Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').show();
-			$('#Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').focus();
+	$('input[type="radio"][name="Element_OphCiNursingtheatrerecord_DayOfOperation[change_of_medical_history_since_pre_operative_assessment]"]').click(function() {
+		if ($('#Element_OphCiNursingtheatrerecord_DayOfOperation_change_of_medical_history_since_pre_operative_assessment_1').is(':checked')) {
+			$('#div_Element_OphCiNursingtheatrerecord_DayOfOperation_history_change_notes').show();
+			$('#Element_OphCiNursingtheatrerecord_DayOfOperation_history_change_notes').focus();
 		} else {
-			$('#div_Element_OphCiNursingtheatrerecord_PreoperativeRecord_history_change_notes').hide();
+			$('#div_Element_OphCiNursingtheatrerecord_DayOfOperation_history_change_notes').hide();
+		}
+	});
+
+	$('input[type="radio"][name="Element_OphCiNursingtheatrerecord_CataractSurgery[surgery_id]"]').click(function() {
+		var element = null;
+		$('input[type="radio"][name="Element_OphCiNursingtheatrerecord_CataractSurgery[surgery_id]"]').map(function() {
+			if ($(this).next('label').text() == 'Other') {
+				element = $(this);
+			}
+		});
+
+		if (element.is(':checked')) {
+			$('#div_Element_OphCiNursingtheatrerecord_CataractSurgery_surgery_notes').show();
+			$('#div_Element_OphCiNursingtheatrerecord_CataractSurgery_surgery_notes').focus();
+		} else {
+			$('#div_Element_OphCiNursingtheatrerecord_CataractSurgery_surgery_notes').hide();
 		}
 	});
 });

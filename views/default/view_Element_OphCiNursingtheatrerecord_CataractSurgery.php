@@ -7,6 +7,12 @@
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('surgery_id'))?></td>
 			<td><span class="big"><?php echo $element->surgery ? $element->surgery->name : 'None'?></span></td>
 		</tr>
+		<?php if ($element->surgery->name == 'Other' && $element->surgery_notes) {?>
+			<tr>
+				<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('surgery_notes'))?></td>
+				<td><span class="big"><?php echo $element->surgery_notes?></span></td>
+			</tr>
+		<?php }?>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('position_id'))?></td>
 			<td><span class="big"><?php echo $element->position ? $element->position->name : 'None'?></span></td>
@@ -20,6 +26,10 @@
 					<?php }?>
 				</span>
 			</td>
+		</tr>
+		<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('diathermy'))?></td>
+			<td><span class="big"><?php echo $element->diathermy ? 'Yes' : 'No'?></span></td>
 		</tr>
 	</tbody>
 </table>

@@ -65,11 +65,11 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, surgery_id, position_id, ', 'safe'),
-			array('surgery_id, ', 'required'),
+			array('event_id, surgery_id, position_id, diathermy, surgery_notes', 'safe'),
+			array('surgery_id, diathermy, surgery_notes', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, surgery_id, position_id, ', 'safe', 'on' => 'search'),
+			array('id, event_id, surgery_id, position_id, diathermy, surgery_notes', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -102,6 +102,7 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 			'event_id' => 'Event',
 			'surgery_id' => 'Surgery',
 			'position_id' => 'Position',
+			'surgery_notes' => 'Surgery notes',
 		);
 	}
 
@@ -158,6 +159,19 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 		}
 
 		return parent::afterSave();
+	}
+
+	public function getHidden() {
+		if (empty($_POST)) {
+			if ($this->id) {
+				return !($this->surgery->name == 'Other');
+			}
+			return true;
+		}
+
+		$surgery_other = EtOphcinursingtheatrerecordCataractsurgerySurgery::model()->find('name=?',array('Other'));
+
+		return (@$_POST['Element_OphCiNursingtheatrerecord_CataractSurgery']['surgery_id'] != $surgery_other->id);
 	}
 }
 ?>
