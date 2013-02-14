@@ -1,1 +1,6 @@
 #event_content .label { width: 20em !important; }
+
+#Element_OphCiNursingtheatrerecord_PatientObservations_spo2 { width: 50px; }
+#Element_OphCiNursingtheatrerecord_PatientObservations_oxygen { width: 50px; }
+#Element_OphCiNursingtheatrerecord_PatientObservations_temperature { width: 50px; }
+#Element_OphCiNursingtheatrerecord_PatientObservations_pulse { width: 50px; }
