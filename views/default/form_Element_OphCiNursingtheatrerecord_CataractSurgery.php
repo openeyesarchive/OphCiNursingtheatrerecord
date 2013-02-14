@@ -24,4 +24,5 @@
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 	<?php echo $form->radioButtons($element, 'surgery_id', 'et_ophcinursingtheatrerecord_cataractsurgery_surgery')?>
 	<?php echo $form->radioButtons($element, 'position_id', 'et_ophcinursingtheatrerecord_cataractsurgery_position')?>
+	<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
 </div>

@@ -17,7 +17,7 @@
  */
 
 /**
- * This is the model class for table "et_ophcinursingtheatrerecord_cataractsurgery".
+ * This is the model class for table "ophcinursingtheatrerecord_intraoperative_aid".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -36,7 +36,7 @@
  * @property EtOphcinursingtheatrerecordCataractsurgeryPosition $position
  */
 
-class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeElement
+class OphCiNursingtheatrerecord_Intraoperative_Aid extends BaseEventTypeElement
 {
 	public $service;
 
@@ -54,7 +54,7 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 	 */
 	public function tableName()
 	{
-		return 'et_ophcinursingtheatrerecord_cataractsurgery';
+		return 'ophcinursingtheatrerecord_intraoperative_aid';
 	}
 
 	/**
@@ -65,11 +65,11 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, surgery_id, position_id, ', 'safe'),
-			array('surgery_id, ', 'required'),
+			array('name', 'safe'),
+			array('name', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, surgery_id, position_id, ', 'safe', 'on' => 'search'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -86,9 +86,6 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'surgery' => array(self::BELONGS_TO, 'EtOphcinursingtheatrerecordCataractsurgerySurgery', 'surgery_id'),
-			'position' => array(self::BELONGS_TO, 'EtOphcinursingtheatrerecordCataractsurgeryPosition', 'position_id'),
-			'intraoperative_aids' => array(self::HAS_MANY, 'OphCiNursingtheatrerecord_Intraoperative_Aids', 'element_id'),
 		);
 	}
 
@@ -100,8 +97,6 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'surgery_id' => 'Surgery',
-			'position_id' => 'Position',
 		);
 	}
 
@@ -118,46 +113,10 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('surgery_id', $this->surgery_id);
-		$criteria->compare('position_id', $this->position_id);
-		
+
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-	protected function afterSave()
-	{
-		$existing_aids = array();
-
-		foreach ($this->intraoperative_aids as $aid) {
-			$existing_aids[] = $aid->aid_id;
-		}
-
-		if (isset($_POST['IntraoperativeAid'])) {
-			foreach ($_POST['IntraoperativeAid'] as $id) {
-				if (!in_array($id,$existing_aids)) {
-					$aid = new OphCiNursingtheatrerecord_Intraoperative_Aids;
-					$aid->element_id = $this->id;
-					$aid->aid_id = $id;
-
-					if (!$aid->save()) {
-						throw new Exception("Unable to save intraoperative aid: ".print_r($aid->getErrors(),true));
-					}
-				}
-			}
-		}
-
-		foreach ($existing_aids as $id) {
-			if (!isset($_POST['IntraoperativeAid']) || !in_array($id,$_POST['IntraoperativeAid'])) {
-				$aid = OphCiNursingtheatrerecord_Intraoperative_Aids::model()->find('element_id=? and aid_id=?',array($this->id,$id));
-				if (!$aid->delete()) {
-					throw new Exception("Unable to delete intraoperative aid: ".print_r($aid->getErrors(),true));
-				}
-			}
-		}
-
-		return parent::afterSave();
 	}
 }
 ?>

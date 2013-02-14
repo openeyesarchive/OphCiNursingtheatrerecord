@@ -11,5 +11,15 @@
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('position_id'))?></td>
 			<td><span class="big"><?php echo $element->position ? $element->position->name : 'None'?></span></td>
 		</tr>
+		<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('intraoperative_aids'))?></td>
+			<td>
+				<span class="big">
+					<?php foreach ($element->intraoperative_aids as $aid) {?>
+						<?php echo $aid->aid->name?><br/>
+					<?php }?>
+				</span>
+			</td>
+		</tr>
 	</tbody>
 </table>
