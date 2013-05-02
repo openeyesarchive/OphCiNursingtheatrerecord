@@ -15,7 +15,6 @@
  * @copyright Copyright (c) 2011-2012, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
- /*
  ?>
 <div class="element <?php echo $element->elementType->class_name?>"
 	data-element-type-id="<?php echo $element->elementType->id ?>"
@@ -29,4 +28,3 @@
 	<?php echo $form->radioBoolean($element, 'pre_operative_checklist_completed_and_filed_in_notes')?>
 	<?php echo $form->radioBoolean($element, 'cdj_checklist_completed_and_filed_in_notes')?>
 </div>
-*/?>
