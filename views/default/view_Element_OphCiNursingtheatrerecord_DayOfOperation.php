@@ -1,4 +1,5 @@
 
+<?php /*
 <h4 class="elementTypeName"><?php  echo $element->elementType->name ?></h4>
 
 <table class="subtleWhite normalText">
@@ -27,3 +28,4 @@
 		</tr>
 	</tbody>
 </table>
+*/?>

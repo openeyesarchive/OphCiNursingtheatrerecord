@@ -73,8 +73,7 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'safe'),
-			array('scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'required'),
+			array('event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id, scrub_nurse, floor_nurse, accompanying_nurse, surgeon, operating_department_practitioner, assistant, anaesthetist', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, event_id, scrub_nurse_id, floor_nurse_id, accompanying_nurse_id, surgeon_id, operating_department_practitioner_id, assistant_id, anaesthetist_id', 'safe', 'on' => 'search'),
@@ -94,13 +93,13 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'scrub_nurse' => array(self::BELONGS_TO, 'User', 'scrub_nurse_id'),
-			'floor_nurse' => array(self::BELONGS_TO, 'User', 'floor_nurse_id'),
-			'accompanying_nurse' => array(self::BELONGS_TO, 'User', 'accompanying_nurse_id'),
-			'surgeon' => array(self::BELONGS_TO, 'User', 'surgeon_id'),
-			'operating_department_practitioner' => array(self::BELONGS_TO, 'User', 'operating_department_practitioner_id'),
-			'assistant' => array(self::BELONGS_TO, 'User', 'assistant_id'),
-			'anaesthetist' => array(self::BELONGS_TO, 'User', 'anaesthetist_id'),
+			'o_scrub_nurse' => array(self::BELONGS_TO, 'User', 'scrub_nurse_id'),
+			'o_floor_nurse' => array(self::BELONGS_TO, 'User', 'floor_nurse_id'),
+			'o_accompanying_nurse' => array(self::BELONGS_TO, 'User', 'accompanying_nurse_id'),
+			'o_surgeon' => array(self::BELONGS_TO, 'User', 'surgeon_id'),
+			'o_operating_department_practitioner' => array(self::BELONGS_TO, 'User', 'operating_department_practitioner_id'),
+			'o_assistant' => array(self::BELONGS_TO, 'User', 'assistant_id'),
+			'o_anaesthetist' => array(self::BELONGS_TO, 'User', 'anaesthetist_id'),
 		);
 	}
 
@@ -135,42 +134,26 @@ class Element_OphCiNursingtheatrerecord_Personnel extends BaseEventTypeElement
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('event_id', $this->event_id, true);
-
-$criteria->compare('scrub_nurse_id', $this->scrub_nurse_id);
-$criteria->compare('floor_nurse_id', $this->floor_nurse_id);
-$criteria->compare('accompanying_nurse_id', $this->accompanying_nurse_id);
-$criteria->compare('surgeon_id', $this->surgeon_id);
-$criteria->compare('operating_department_practitioner_id', $this->operating_department_practitioner_id);
-$criteria->compare('assistant_id', $this->assistant_id);
+		$criteria->compare('scrub_nurse_id', $this->scrub_nurse_id);
+		$criteria->compare('floor_nurse_id', $this->floor_nurse_id);
+		$criteria->compare('accompanying_nurse_id', $this->accompanying_nurse_id);
+		$criteria->compare('surgeon_id', $this->surgeon_id);
+		$criteria->compare('operating_department_practitioner_id', $this->operating_department_practitioner_id);
+		$criteria->compare('assistant_id', $this->assistant_id);
 		
 		return new CActiveDataProvider(get_class($this), array(
-				'criteria' => $criteria,
-			));
+			'criteria' => $criteria,
+		));
 	}
 
-	/**
-	 * Set default values for forms on create
-	 */
-	public function setDefaultOptions()
-	{
-	}
+	protected function afterValidate() {
+		foreach (array('scrub_nurse','floor_nurse','accompanying_nurse','surgeon','operating_department_practitioner','anaesthetist','assistant') as $field) {
+			if (empty($_POST[get_class($this)][$field]) && empty($_POST[get_class($this)][$field.'_id'])) {
+				$this->addError($field,$this->getAttributeLabel($field.'_id').' cannot be blank');
+			}
+		}
 
-
-
-	protected function beforeSave()
-	{
-		return parent::beforeSave();
-	}
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
-	}
-
-	protected function beforeValidate()
-	{
-		return parent::beforeValidate();
+		return parent::afterValidate();
 	}
 }
 ?>

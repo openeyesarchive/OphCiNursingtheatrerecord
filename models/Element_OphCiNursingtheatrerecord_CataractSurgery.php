@@ -66,7 +66,7 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 		// will receive user inputs.
 		return array(
 			array('event_id, surgery_id, position_id, diathermy, surgery_notes', 'safe'),
-			array('surgery_id, diathermy, surgery_notes', 'required'),
+			array('surgery_id, diathermy', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, event_id, surgery_id, position_id, diathermy, surgery_notes', 'safe', 'on' => 'search'),
