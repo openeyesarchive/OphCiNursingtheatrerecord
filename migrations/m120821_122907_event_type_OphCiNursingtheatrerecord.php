@@ -117,8 +117,8 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
 		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Not performed','display_order'=>1));
-		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Right phako with IOL','display_order'=>2));
-		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Left phako with IOL','display_order'=>3));
+		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Right phaco with IOL','display_order'=>2));
+		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Left phaco with IOL','display_order'=>3));
 
 		// element lookup table et_ophcinursingtheatrerecord_cataractsurgery_position
 		$this->createTable('et_ophcinursingtheatrerecord_cataractsurgery_position', array(
