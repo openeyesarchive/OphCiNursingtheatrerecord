@@ -1,15 +1,15 @@
 {
   "name": "openeyes",
   "version": "1.4.0",
-  "description": "OphCiDischargenote event module.",
+  "description": "OphCiNursingtheatrerecord event module.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/openeyes/OphCiDischargenote.git"
+    "url": "git://github.com/openeyes/OphCiNursingtheatrerecord.git"
   },
   "author": "OpenEyes",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/openeyes/OphCiDischargenote/issues"
+    "url": "https://github.com/openeyes/OphCiNursingtheatrerecord/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

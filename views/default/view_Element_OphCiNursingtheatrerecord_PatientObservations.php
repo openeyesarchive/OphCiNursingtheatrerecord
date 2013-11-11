@@ -1,23 +1,42 @@
 
-<h4 class="elementTypeName"><?php  echo $element->elementType->name ?></h4>
+<section class="element">
+	<header class="element-header">
+		<h3 class="data-title"><?php echo $element->elementType->name ?></h3>
+	</header>
 
-<table class="subtleWhite normalText">
-	<tbody>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('spo2'))?></td>
-			<td><span class="big"><?php echo $element->spo2?>%</span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('oxygen'))?></td>
-			<td><span class="big"><?php echo $element->oxygen?>%</span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('temperature'))?></td>
-			<td><span class="big"><?php echo $element->temperature?>°C</span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('pulse'))?></td>
-			<td><span class="big"><?php echo $element->pulse?> bpm</span></td>
-		</tr>
-	</tbody>
-</table>
+	<div class="element-data highlight">
+		<div class="row data-row">
+			<div class="large-4 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('spo2'))?>:</div>
+			</div>
+			<div class="large-8 column">
+				<div class="data-value"><?php echo $element->spo2?>%</div>
+			</div>
+		</div>
+		<div class="row data-row">
+			<div class="large-4 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('oxygen'))?>:</div>
+			</div>
+			<div class="large-8 column">
+				<div class="data-value"><?php echo $element->oxygen?>%</div>
+			</div>
+		</div>
+		<div class="row data-row">
+			<div class="large-4 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('temperature'))?>:</div>
+			</div>
+			<div class="large-8 column">
+				<div class="data-value"><?php echo $element->temperature?>°C</div>
+			</div>
+		</div>
+		<div class="row data-row">
+			<div class="large-4 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pulse'))?>:</div>
+			</div>
+			<div class="large-8 column">
+				<div class="data-value"><?php echo $element->pulse?> bpm</div>
+			</div>
+		</div>
+	</div>
+
+</section>

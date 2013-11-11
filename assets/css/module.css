@@ -1,4 +1,4 @@
-/** Examination module styles */
+/** OphCiNursingtheatrerecord module styles */
 /**
  * OpenEyes
  *
@@ -85,14 +85,14 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 /* line 2, ../sass/components/_event.scss */
-.event.ophcidischargenote {
+.event.ophcinursingtheatrerecord {
   border-color: #aaaaaa;
 }
 /* line 4, ../sass/components/_event.scss */
-.event.ophcidischargenote .event-content {
+.event.ophcinursingtheatrerecord .event-content {
   background-image: url('../img/watermark.png?1383818970');
 }
 /* line 7, ../sass/components/_event.scss */
-.event.ophcidischargenote .event-title {
+.event.ophcinursingtheatrerecord .event-title {
   background-image: url('../img/medium.png?1383818970');
 }

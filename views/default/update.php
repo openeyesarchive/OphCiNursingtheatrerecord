@@ -1,10 +1,9 @@
-<?php 	$this->breadcrumbs=array($this->module->id);
-	$this->header();
-?>
-<h3 class="withEventIcon" style="background:transparent url(<?php echo $this->assetPath?>/img/medium.png) center left no-repeat;"><?php echo $this->event_type->name ?></h3>
+<?php $this->beginContent('//patient/event_container'); ?>
 
-<div>
-	<?php 		$form = $this->beginWidget('BaseEventTypeCActiveForm', array(
+<h2 class="event-title"><?php echo $this->event_type->name ?></h2>
+
+	<?php
+	$form = $this->beginWidget('BaseEventTypeCActiveForm', array(
 			'id'=>'clinical-create',
 			'enableAjaxValidation'=>false,
 			'htmlOptions' => array('class'=>'sliding'),
@@ -15,12 +14,8 @@
 	<?php  $this->renderDefaultElements($this->action->id, $form); ?>
 	<?php  $this->renderOptionalElements($this->action->id, $form); ?>
 	<?php  $this->displayErrors($errors)?>
-		<div class="cleartall"></div>
-		<div class="form_button">
-			<img class="loader" style="display: none;" src="<?php echo Yii::app()->createUrl('img/ajax-loader.gif')?>" alt="loading..." />&nbsp;
-			<button type="submit" class="classy green venti" id="et_save" name="save"><span class="button-span button-span-green">Save</span></button>
-			<button type="submit" class="classy red venti" id="et_cancel" name="cancel"><span class="button-span button-span-red">Cancel</span></button>
-		</div>
-	<?php  $this->endWidget(); ?></div>
+	<?php $this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'secondary'), array('class' => 'button small', 'form'=>'clinical-create'));?>
+	<?php  $this->endWidget(); ?>
 
-<?php  $this->footer(); ?>
+
+<?php $this->endContent() ;?>
