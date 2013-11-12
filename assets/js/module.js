@@ -24,17 +24,15 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	$('select.populate_textarea').unbind('change').change(function() {
+	$('.Element_OphCiNursingtheatrerecord_Personnel').find('select').unbind('change').change(function() {
 		if ($(this).val() != '') {
-			var cLass = $(this).parent().parent().parent().attr('class');
-			var el = $('#'+cLass+'_'+$(this).attr('id'));
-			var currentText = el.text();
-			var newText = $(this).children('option:selected').text();
-
+			var closestTextbox = $(this).nextAll('input');
+			var currentText = closestTextbox.val();
+			var newText = ($(this).find("option:selected").text());
 			if (currentText.length == 0) {
-				el.text(ucfirst(newText));
+				closestTextbox.val(ucfirst(newText));
 			} else {
-				el.text(currentText+', '+newText);
+				closestTextbox.val(currentText+', '+newText);
 			}
 		}
 	});
