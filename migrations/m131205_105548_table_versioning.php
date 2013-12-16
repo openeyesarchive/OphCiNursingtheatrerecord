@@ -311,22 +311,14 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aids_version` (
 	public function down()
 	{
 		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aid','deleted');
-		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aid_version','deleted');
 		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aids','deleted');
-		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aids_version','deleted');
 
 		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_version','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_position','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_position_version','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_surgery','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_surgery_version','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_dayofoperation','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_dayofoperation_version','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_patient_observations','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_patient_observations_version','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_personnel','deleted');
-		$this->dropColumn('et_ophcinursingtheatrerecord_personnel_version','deleted');
 
 		$this->dropTable('et_ophcinursingtheatrerecord_cataractsurgery_version');
 		$this->dropTable('et_ophcinursingtheatrerecord_cataractsurgery_position_version');
