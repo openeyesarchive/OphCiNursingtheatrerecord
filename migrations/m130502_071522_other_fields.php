@@ -4,13 +4,13 @@ class m130502_071522_other_fields extends CDbMigration
 {
 	public function up()
 	{
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','scrub_nurse','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','floor_nurse','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','accompanying_nurse','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','surgeon','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','operating_department_practitioner','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','assistant','varchar(64) COLLATE utf8_bin NOT NULL');
-		$this->addColumn('et_ophcinursingtheatrerecord_personnel','anaesthetist','varchar(64) COLLATE utf8_bin NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','scrub_nurse','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','floor_nurse','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','accompanying_nurse','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','surgeon','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','operating_department_practitioner','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','assistant','varchar(64) NOT NULL');
+		$this->addColumn('et_ophcinursingtheatrerecord_personnel','anaesthetist','varchar(64) NOT NULL');
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_personnel','scrub_nurse_id','int(10) unsigned NULL');
 		$this->alterColumn('et_ophcinursingtheatrerecord_personnel','floor_nurse_id','int(10) unsigned NULL');

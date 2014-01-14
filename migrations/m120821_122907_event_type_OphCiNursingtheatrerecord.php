@@ -61,7 +61,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'CONSTRAINT `et_ophcinursingtheatrerecord_preoperativerecord_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_preoperativerecord_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_preoperativerecord_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 
 
@@ -98,12 +98,12 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_surgeon_id_fk` FOREIGN KEY (`surgeon_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_oopd_id_fk` FOREIGN KEY (`operating_department_practitioner_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_personnel_assistant_id_fk` FOREIGN KEY (`assistant_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		// element lookup table et_ophcinursingtheatrerecord_cataractsurgery_surgery
 		$this->createTable('et_ophcinursingtheatrerecord_cataractsurgery_surgery', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -114,7 +114,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'KEY `et_ophcinursingtheatrerecord_cataractsurgery_surgery_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_surgery_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_surgery_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Not performed','display_order'=>1));
 		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_surgery',array('name'=>'Right phako with IOL','display_order'=>2));
@@ -123,7 +123,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 		// element lookup table et_ophcinursingtheatrerecord_cataractsurgery_position
 		$this->createTable('et_ophcinursingtheatrerecord_cataractsurgery_position', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -134,7 +134,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'KEY `et_ophcinursingtheatrerecord_cataractsurgery_position_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_position_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_position_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_position',array('name'=>'Supine','display_order'=>1));
 		$this->insert('et_ophcinursingtheatrerecord_cataractsurgery_position',array('name'=>'Other','display_order'=>2));
@@ -162,12 +162,12 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_surgery_fk` FOREIGN KEY (`surgery_id`) REFERENCES `et_ophcinursingtheatrerecord_cataractsurgery_surgery` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_cataractsurgery_position_fk` FOREIGN KEY (`position_id`) REFERENCES `et_ophcinursingtheatrerecord_cataractsurgery_position` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		// element lookup table et_ophcinursingtheatrerecord_anaesthetic_anaesthetic
 		$this->createTable('et_ophcinursingtheatrerecord_anaesthetic_anaesthetic', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -178,7 +178,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'KEY `et_ophcinursingtheatrerecord_anaesthetic_anaesthetic_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_anaesthetic_anaesthetic_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_anaesthetic_anaesthetic_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('et_ophcinursingtheatrerecord_anaesthetic_anaesthetic',array('name'=>'General anaesthetic','display_order'=>1));
 		$this->insert('et_ophcinursingtheatrerecord_anaesthetic_anaesthetic',array('name'=>'Intracameral lidocaine 2%','display_order'=>2));
@@ -207,7 +207,7 @@ class m120821_122907_event_type_OphCiNursingtheatrerecord extends CDbMigration
 				'CONSTRAINT `et_ophcinursingtheatrerecord_anaesthetic_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_anaesthetic_nurse_id_fk` FOREIGN KEY (`nurse_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcinursingtheatrerecord_anaesthetic_anaesthetic_fk` FOREIGN KEY (`anaesthetic_id`) REFERENCES `et_ophcinursingtheatrerecord_anaesthetic_anaesthetic` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 	}
 
