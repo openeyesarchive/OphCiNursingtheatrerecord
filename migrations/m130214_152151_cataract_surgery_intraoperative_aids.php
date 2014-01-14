@@ -6,7 +6,7 @@ class m130214_152151_cataract_surgery_intraoperative_aids extends CDbMigration
 	{
 		$this->createTable('ophcinursingtheatrerecord_intraoperative_aid', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(64) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(64) NOT NULL',
 				'display_order' => 'tinyint(1) unsigned NOT NULL',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -17,7 +17,7 @@ class m130214_152151_cataract_surgery_intraoperative_aids extends CDbMigration
 				'KEY `ophcinursingtheatrerecord_ia_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophcinursingtheatrerecord_ia_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophcinursingtheatrerecord_ia_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophcinursingtheatrerecord_intraoperative_aid',array('name'=>'Gel pads','display_order'=>1));
 		$this->insert('ophcinursingtheatrerecord_intraoperative_aid',array('name'=>'Bairhugger','display_order'=>2));
@@ -40,7 +40,7 @@ class m130214_152151_cataract_surgery_intraoperative_aids extends CDbMigration
 				'CONSTRAINT `ophcinursingtheatrerecord_ias_aid_fk` FOREIGN KEY (`aid_id`) REFERENCES `ophcinursingtheatrerecord_intraoperative_aid` (`id`)',
 				'CONSTRAINT `ophcinursingtheatrerecord_ias_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophcinursingtheatrerecord_ias_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 	}
 
 	public function down()

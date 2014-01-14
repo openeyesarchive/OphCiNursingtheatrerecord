@@ -4,9 +4,9 @@ class m130214_112328_patient_observations extends CDbMigration
 {
 	public function up()
 	{
-		$event_type = EventType::model()->find('class_name=?',array('OphCiNursingtheatrerecord'));
+		$event_type = $this->dbConnection->createCommand()->select("*")->from("event_type")->where("class_name = :class_name",array(":class_name" => "OphCiNursingtheatrerecord"))->queryRow();
 
-		$this->insert('element_type',array('name'=>'Patient observations','class_name'=>'Element_OphCiNursingtheatrerecord_PatientObservations','event_type_id'=>$event_type->id,'display_order'=>2,'default'=>1));
+		$this->insert('element_type',array('name'=>'Patient observations','class_name'=>'Element_OphCiNursingtheatrerecord_PatientObservations','event_type_id'=>$event_type['id'],'display_order'=>2,'default'=>1));
 
 		$this->createTable('et_ophcinursingtheatrerecord_patient_observations', array(
 			'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
@@ -26,15 +26,15 @@ class m130214_112328_patient_observations extends CDbMigration
 			'CONSTRAINT `et_ophcinursingtheatrerecord_po_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 			'CONSTRAINT `et_ophcinursingtheatrerecord_po_cuid_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 			'CONSTRAINT `et_ophcinursingtheatrerecord_po_eid_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-		), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+		), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 	}
 
 	public function down()
 	{
 		$this->dropTable('et_ophcinursingtheatrerecord_patient_observations');
 
-		$event_type = EventType::model()->find('class_name=?',array('OphCiNursingtheatrerecord'));
+		$event_type = $this->dbConnection->createCommand()->select("*")->from("event_type")->where("class_name = :class_name",array(":class_name" => "OphCiNursingtheatrerecord"))->queryRow();
 
-		$this->delete('element_type',"event_type_id = $event_type->id and class_name = 'Element_OphCiNursingtheatrerecord_PatientObservations'");
+		$this->delete('element_type',"event_type_id = {$event_type['id']} and class_name = 'Element_OphCiNursingtheatrerecord_PatientObservations'");
 	}
 }

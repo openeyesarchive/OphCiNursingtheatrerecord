@@ -15,7 +15,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_version` (
 	`created_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`created_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
 	`diathermy` tinyint(1) unsigned NOT NULL DEFAULT '0',
-	`surgery_notes` varchar(1024) COLLATE utf8_bin NOT NULL,
+	`surgery_notes` varchar(1024) NOT NULL,
 	PRIMARY KEY (`id`),
 	KEY `acv_et_ophcinursingtheatrerecord_cataractsurgery_lmui_fk` (`last_modified_user_id`),
 	KEY `acv_et_ophcinursingtheatrerecord_cataractsurgery_cui_fk` (`created_user_id`),
@@ -27,7 +27,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_version` (
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_position_fk` FOREIGN KEY (`position_id`) REFERENCES `et_ophcinursingtheatrerecord_cataractsurgery_position` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_surgery_fk` FOREIGN KEY (`surgery_id`) REFERENCES `et_ophcinursingtheatrerecord_cataractsurgery_surgery` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_cataractsurgery_version','id','int(10) unsigned NOT NULL');
@@ -45,7 +45,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_version` (
 		$this->execute("
 CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_position_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -56,7 +56,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_position_version` (
 	KEY `acv_et_ophcinursingtheatrerecord_cataractsurgery_position_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_phcinursingtheatrerecord_cataractsurgery_position_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_position_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_cataractsurgery_position_version','id','int(10) unsigned NOT NULL');
@@ -74,7 +74,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_position_version` (
 		$this->execute("
 CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_surgery_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -85,7 +85,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_cataractsurgery_surgery_version` (
 	KEY `acv_et_ophcinursingtheatrerecord_cataractsurgery_surgery_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_surgery_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_cataractsurgery_surgery_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_cataractsurgery_surgery_version','id','int(10) unsigned NOT NULL');
@@ -112,7 +112,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_dayofoperation_version` (
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
 	`created_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`created_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
-	`history_change_notes` varchar(2048) COLLATE utf8_bin NOT NULL,
+	`history_change_notes` varchar(2048) NOT NULL,
 	PRIMARY KEY (`id`),
 	KEY `acv_et_ophcinursingtheatrerecord_dayofoperation_ev_fk` (`event_id`),
 	KEY `acv_et_ophcinursingtheatrerecord_dayofoperation_cui_fk` (`created_user_id`),
@@ -120,7 +120,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_dayofoperation_version` (
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_dayofoperation_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_dayofoperation_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_dayofoperation_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_dayofoperation_version','id','int(10) unsigned NOT NULL');
@@ -154,7 +154,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_patient_observations_version` (
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_po_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_po_cuid_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_po_eid_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_patient_observations_version','id','int(10) unsigned NOT NULL');
@@ -184,13 +184,13 @@ CREATE TABLE `et_ophcinursingtheatrerecord_personnel_version` (
 	`created_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`created_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
 	`anaesthetist_id` int(10) unsigned DEFAULT NULL,
-	`scrub_nurse` varchar(64) COLLATE utf8_bin NOT NULL,
-	`floor_nurse` varchar(64) COLLATE utf8_bin NOT NULL,
-	`accompanying_nurse` varchar(64) COLLATE utf8_bin NOT NULL,
-	`surgeon` varchar(64) COLLATE utf8_bin NOT NULL,
-	`operating_department_practitioner` varchar(64) COLLATE utf8_bin NOT NULL,
-	`assistant` varchar(64) COLLATE utf8_bin NOT NULL,
-	`anaesthetist` varchar(64) COLLATE utf8_bin NOT NULL,
+	`scrub_nurse` varchar(64) NOT NULL,
+	`floor_nurse` varchar(64) NOT NULL,
+	`accompanying_nurse` varchar(64) NOT NULL,
+	`surgeon` varchar(64) NOT NULL,
+	`operating_department_practitioner` varchar(64) NOT NULL,
+	`assistant` varchar(64) NOT NULL,
+	`anaesthetist` varchar(64) NOT NULL,
 	PRIMARY KEY (`id`),
 	KEY `acv_et_ophcinursingtheatrerecord_personnel_lmui_fk` (`last_modified_user_id`),
 	KEY `acv_et_ophcinursingtheatrerecord_personnel_cui_fk` (`created_user_id`),
@@ -212,7 +212,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_personnel_version` (
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_personnel_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_personnel_scrub_nurse_id_fk` FOREIGN KEY (`scrub_nurse_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcinursingtheatrerecord_personnel_surgeon_id_fk` FOREIGN KEY (`surgeon_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcinursingtheatrerecord_personnel_version','id','int(10) unsigned NOT NULL');
@@ -230,7 +230,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_personnel_version` (
 		$this->execute("
 CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aid_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(64) COLLATE utf8_bin NOT NULL,
+	`name` varchar(64) NOT NULL,
 	`display_order` tinyint(1) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -241,7 +241,7 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aid_version` (
 	KEY `acv_ophcinursingtheatrerecord_ia_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ia_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ia_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophcinursingtheatrerecord_intraoperative_aid_version','id','int(10) unsigned NOT NULL');
@@ -274,7 +274,7 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aids_version` (
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_aid_fk` FOREIGN KEY (`aid_id`) REFERENCES `ophcinursingtheatrerecord_intraoperative_aid` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophcinursingtheatrerecord_intraoperative_aids_version','id','int(10) unsigned NOT NULL');
