@@ -105,7 +105,7 @@ CREATE TABLE `et_ophcinursingtheatrerecord_dayofoperation_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`event_id` int(10) unsigned NOT NULL,
 	`change_of_medical_history_since_pre_operative_assessment` tinyint(1) unsigned DEFAULT NULL,
-	`inr_level_if_applicable` varchar(255) COLLATE utf8_bin DEFAULT '',
+	`inr_level_if_applicable` varchar(255) DEFAULT '',
 	`pre_operative_checklist_completed_and_filed_in_notes` tinyint(1) unsigned DEFAULT NULL,
 	`cdj_checklist_completed_and_filed_in_notes` tinyint(1) unsigned DEFAULT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
