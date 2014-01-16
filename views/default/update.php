@@ -1,7 +1,5 @@
 <?php $this->beginContent('//patient/event_container'); ?>
 
-<h2 class="event-title"><?php echo $this->event_type->name ?></h2>
-
 	<?php
 	$form = $this->beginWidget('BaseEventTypeCActiveForm', array(
 			'id'=>'clinical-create',
