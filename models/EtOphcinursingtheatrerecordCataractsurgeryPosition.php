@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class EtOphcinursingtheatrerecordCataractsurgeryPosition extends BaseActiveRecordVersioned
+class EtOphcinursingtheatrerecordCataractsurgeryPosition extends BaseActiveRecordVersionedSoftDelete
 {
 	/**
 	 * Returns the static model of the specified AR class.
