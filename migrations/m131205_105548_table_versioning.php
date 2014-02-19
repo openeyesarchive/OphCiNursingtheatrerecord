@@ -281,7 +281,6 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aids_version` (
 		$this->dropPrimaryKey('id','ophcinursingtheatrerecord_intraoperative_aids_version');
 
 		$this->createIndex('ophcinursingtheatrerecord_intraoperative_aids_aid_fk','ophcinursingtheatrerecord_intraoperative_aids_version','id');
-		$this->addForeignKey('ophcinursingtheatrerecord_intraoperative_aids_aid_fk','ophcinursingtheatrerecord_intraoperative_aids_version','id','ophcinursingtheatrerecord_intraoperative_aids','id');
 
 		$this->addColumn('ophcinursingtheatrerecord_intraoperative_aids_version','version_date',"datetime not null default '1900-01-01 00:00:00'");
 
@@ -304,14 +303,11 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aids_version` (
 
 		$this->addColumn('ophcinursingtheatrerecord_intraoperative_aid','deleted','tinyint(1) unsigned not null');
 		$this->addColumn('ophcinursingtheatrerecord_intraoperative_aid_version','deleted','tinyint(1) unsigned not null');
-		$this->addColumn('ophcinursingtheatrerecord_intraoperative_aids','deleted','tinyint(1) unsigned not null');
-		$this->addColumn('ophcinursingtheatrerecord_intraoperative_aids_version','deleted','tinyint(1) unsigned not null');
 	}
 
 	public function down()
 	{
 		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aid','deleted');
-		$this->dropColumn('ophcinursingtheatrerecord_intraoperative_aids','deleted');
 
 		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery','deleted');
 		$this->dropColumn('et_ophcinursingtheatrerecord_cataractsurgery_position','deleted');
