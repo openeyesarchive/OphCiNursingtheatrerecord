@@ -22,9 +22,9 @@
 	data-element-type-name="<?php echo $element->elementType->name ?>"
 	data-element-display-order="<?php echo $element->elementType->display_order ?>">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-	<?php echo $form->radioButtons($element, 'surgery_id', CHtml::listData(EtOphcinursingtheatrerecordCataractsurgerySurgery::model()->notDeleted()->findAll(array('order'=>'display_order asc')),'id','name'))?>
+	<?php echo $form->radioButtons($element, 'surgery_id', CHtml::listData(EtOphcinursingtheatrerecordCataractsurgerySurgery::model()->notDeletedOrPk($element->surgery_id)->findAll(array('order'=>'display_order asc')),'id','name'))?>
 	<?php echo $form->textField($element, 'surgery_notes', array('hide'=>$element->hidden));?>
-	<?php echo $form->radioButtons($element, 'position_id', CHtml::listData(EtOphcinursingtheatrerecordCataractsurgeryPosition::model()->notDeleted()->findAll(array('order'=>'display_order asc')),'id','name'))?>
-	<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
+	<?php echo $form->radioButtons($element, 'position_id', CHtml::listData(EtOphcinursingtheatrerecordCataractsurgeryPosition::model()->notDeletedOrPk($element->position_id)->findAll(array('order'=>'display_order asc')),'id','name'))?>
+	<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->notDeletedOrPk($element->intraOperativeAidValues)->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
 	<?php echo $form->radioBoolean($element, 'diathermy')?>
 </div>

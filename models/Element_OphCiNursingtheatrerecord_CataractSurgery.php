@@ -173,5 +173,16 @@ class Element_OphCiNursingtheatrerecord_CataractSurgery extends BaseEventTypeEle
 
 		return (@$_POST['Element_OphCiNursingtheatrerecord_CataractSurgery']['surgery_id'] != $surgery_other->id);
 	}
+
+	public function getIntraOperativeAidValues()
+	{
+		$intraoperative_aid_values = array();
+
+		foreach ($this->intraoperative_aids as $intraoperative_aid) {
+			$intraoperative_aid_values[] = $intraoperative_aid->aid_id;
+		}
+
+		return $intraoperative_aid_values;
+	}
 }
 ?>
