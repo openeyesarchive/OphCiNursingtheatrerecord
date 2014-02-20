@@ -36,7 +36,7 @@
  * @property EtOphcinursingtheatrerecordCataractsurgeryPosition $position
  */
 
-class OphCiNursingtheatrerecord_Intraoperative_Aids extends BaseActiveRecordVersionedSoftDelete
+class OphCiNursingtheatrerecord_Intraoperative_Aids extends BaseActiveRecordVersioned
 {
 	public $service;
 
