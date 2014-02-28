@@ -17,9 +17,9 @@
  */
  ?>
 <div class="element-fields">
-	<?php echo $form->radioButtons($element, 'surgery_id', 'et_ophcinursingtheatrerecord_cataractsurgery_surgery')?>
+	<?php echo $form->radioButtons($element, 'surgery_id',  CHtml::listData(EtOphcinursingtheatrerecordCataractsurgerySurgery::model()->findAll(array('order'=>'display_order asc')),'id','name'))?>
 	<?php echo $form->textField($element, 'surgery_notes', array('hide'=>$element->hidden));?>
-	<?php echo $form->radioButtons($element, 'position_id', 'et_ophcinursingtheatrerecord_cataractsurgery_position')?>
+	<?php echo $form->radioButtons($element, 'position_id',  CHtml::listData(EtOphcinursingtheatrerecordCataractsurgeryPosition::model()->findAll(array('order'=>'display_order asc')),'id','name'))?>
 	<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
 	<?php echo $form->radioBoolean($element, 'diathermy')?>
 </div>
