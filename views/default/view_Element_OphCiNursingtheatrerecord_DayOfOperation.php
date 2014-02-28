@@ -18,21 +18,18 @@
  */
 ?>
 
-<section class="element element-data">
-	<h3 class="data-title"><?php echo $element->elementType->name ?></h3>
-
-	<div class="element-data">
-		<div class="row">
-			<div class="large-12 column data-value highlight">
-				<div class="row data-row">
-					<div class="large-4 column">
-						<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('change_of_medical_history_since_pre_operative_assessment'))?>::</div>
-					</div>
-					<div class="large-8 column">
-						<div class="data-value"><?php echo $element->change_of_medical_history_since_pre_operative_assessment ? 'Yes' : 'No'?></div>
-					</div>
+<div class="element-data">
+	<div class="row">
+		<div class="large-12 column data-value highlight">
+			<div class="row data-row">
+				<div class="large-4 column">
+					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('change_of_medical_history_since_pre_operative_assessment'))?>::</div>
 				</div>
-		<?php if ($element->change_of_medical_history_since_pre_operative_assessment && $element->history_change_notes) {?>
+				<div class="large-8 column">
+					<div class="data-value"><?php echo $element->change_of_medical_history_since_pre_operative_assessment ? 'Yes' : 'No'?></div>
+				</div>
+			</div>
+			<?php if ($element->change_of_medical_history_since_pre_operative_assessment && $element->history_change_notes) {?>
 				<div class="row data-row">
 					<div class="large-4 column">
 						<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('history_change_notes'))?>:</div>
@@ -41,32 +38,32 @@
 						<div class="data-value"><?php echo $element->history_change_notes?></div>
 					</div>
 				</div>
-		<?php }?>
-				<div class="row data-row">
-					<div class="large-4 column">
-						<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('inr_level_if_applicable'))?></div>
-					</div>
-					<div class="large-8 column">
-						<div class="data-value"><?php echo $element->inr_level_if_applicable?></div>
-					</div>
+			<?php }?>
+			<div class="row data-row">
+				<div class="large-4 column">
+					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('inr_level_if_applicable'))?></div>
 				</div>
-				<div class="row data-row">
-					<div class="large-4 column">
-						<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pre_operative_checklist_completed_and_filed_in_notes'))?>:</div>
-					</div>
-					<div class="large-8 column">
-						<div class="data-value"><?php echo $element->pre_operative_checklist_completed_and_filed_in_notes ? 'Yes' : 'No'?></div>
-					</div>
+				<div class="large-8 column">
+					<div class="data-value"><?php echo $element->inr_level_if_applicable?></div>
 				</div>
-				<div class="row data-row">
-					<div class="large-4 column">
-						<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('cdj_checklist_completed_and_filed_in_notes'))?>:</div>
-					</div>
-					<div class="large-8 column">
-						<div class="data-value"><?php echo $element->cdj_checklist_completed_and_filed_in_notes ? 'Yes' : 'No'?></div>
-					</div>
+			</div>
+			<div class="row data-row">
+				<div class="large-4 column">
+					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pre_operative_checklist_completed_and_filed_in_notes'))?>:</div>
+				</div>
+				<div class="large-8 column">
+					<div class="data-value"><?php echo $element->pre_operative_checklist_completed_and_filed_in_notes ? 'Yes' : 'No'?></div>
+				</div>
+			</div>
+			<div class="row data-row">
+				<div class="large-4 column">
+					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('cdj_checklist_completed_and_filed_in_notes'))?>:</div>
+				</div>
+				<div class="large-8 column">
+					<div class="data-value"><?php echo $element->cdj_checklist_completed_and_filed_in_notes ? 'Yes' : 'No'?></div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</div>
+

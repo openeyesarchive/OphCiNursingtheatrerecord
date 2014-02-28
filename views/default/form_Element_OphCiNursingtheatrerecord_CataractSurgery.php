@@ -16,20 +16,11 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
  ?>
-<section class="element <?php echo $element->elementType->class_name?>"
-		 data-element-type-id="<?php echo $element->elementType->id ?>"
-		 data-element-type-class="<?php echo $element->elementType->class_name ?>"
-		 data-element-type-name="<?php echo $element->elementType->name ?>"
-		 data-element-display-order="<?php echo $element->elementType->display_order ?>">
-	<element-header>
-		<h3 class="element-title"><?php  echo $element->elementType->name; ?></h3>
-	</element-header>
+<div class="element-fields">
+	<?php echo $form->radioButtons($element, 'surgery_id', 'et_ophcinursingtheatrerecord_cataractsurgery_surgery')?>
+	<?php echo $form->textField($element, 'surgery_notes', array('hide'=>$element->hidden));?>
+	<?php echo $form->radioButtons($element, 'position_id', 'et_ophcinursingtheatrerecord_cataractsurgery_position')?>
+	<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
+	<?php echo $form->radioBoolean($element, 'diathermy')?>
+</div>
 
-	<div class="element-fields">
-		<?php echo $form->radioButtons($element, 'surgery_id', 'et_ophcinursingtheatrerecord_cataractsurgery_surgery')?>
-		<?php echo $form->textField($element, 'surgery_notes', array('hide'=>$element->hidden));?>
-		<?php echo $form->radioButtons($element, 'position_id', 'et_ophcinursingtheatrerecord_cataractsurgery_position')?>
-		<?php echo $form->multiSelectList($element, 'IntraoperativeAid', 'intraoperative_aids', 'aid_id', CHtml::listData(OphCiNursingtheatrerecord_Intraoperative_Aid::model()->findAll(array('order'=>'display_order')),'id','name'), null, array('empty' => '- Intraoperative aids -', 'label' => 'Aids'))?>
-		<?php echo $form->radioBoolean($element, 'diathermy')?>
-	</div>
-</section>

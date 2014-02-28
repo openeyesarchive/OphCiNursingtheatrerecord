@@ -16,18 +16,10 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
  ?>
-<section class="element <?php echo $element->elementType->class_name?>"
-		 data-element-type-id="<?php echo $element->elementType->id ?>"
-		 data-element-type-class="<?php echo $element->elementType->class_name ?>"
-		 data-element-type-name="<?php echo $element->elementType->name ?>"
-		 data-element-display-order="<?php echo $element->elementType->display_order ?>">
-	<element-header>
-		<h3 class="element-title"><?php  echo $element->elementType->name; ?></h3>
-	</element-header>
-	<div class="element-fields">
-		<?php echo $form->textField($element, 'spo2', array('append_text' => '%'))?>
-		<?php echo $form->textField($element, 'oxygen', array('append_text' => '%'))?>
-		<?php echo $form->textField($element, 'temperature', array('append_text' => '°C'))?>
-		<?php echo $form->textField($element, 'pulse', array('append_text' => 'bpm'))?>
-	</div>
-</section>
+<div class="element-fields">
+	<?php echo $form->textField($element, 'spo2', array('append_text' => '%'))?>
+	<?php echo $form->textField($element, 'oxygen', array('append_text' => '%'))?>
+	<?php echo $form->textField($element, 'temperature', array('append_text' => '°C'))?>
+	<?php echo $form->textField($element, 'pulse', array('append_text' => 'bpm'))?>
+</div>
+

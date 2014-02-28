@@ -17,58 +17,52 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-
-<section class="element">
-	<header class="element-header">
-		<h3 class="data-title"><?php echo $element->elementType->name ?></h3>
-	</header>
-
-	<div class="element-data highlight">
+<div class="element-data highlight">
+	<div class="row data-row">
+		<div class="large-4 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgery_id'))?>:</div>
+		</div>
+		<div class="large-8 column">
+			<div class="data-value"><?php echo $element->surgery ? $element->surgery->name : 'None'?></div>
+		</div>
+	</div>
+	<?php if ($element->surgery->name == 'Other' && $element->surgery_notes) {?>
 		<div class="row data-row">
 			<div class="large-4 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgery_id'))?>:</div>
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgery_notes'))?>:</div>
 			</div>
 			<div class="large-8 column">
-				<div class="data-value"><?php echo $element->surgery ? $element->surgery->name : 'None'?></div>
+				<div class="data-value"><?php echo $element->surgery_notes?></div>
 			</div>
 		</div>
-		<?php if ($element->surgery->name == 'Other' && $element->surgery_notes) {?>
-			<div class="row data-row">
-				<div class="large-4 column">
-					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgery_notes'))?>:</div>
-				</div>
-				<div class="large-8 column">
-					<div class="data-value"><?php echo $element->surgery_notes?></div>
-				</div>
-			</div>
-		<?php }?>
-		<div class="row data-row">
-			<div class="large-4 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('position_id'))?>:</div>
-			</div>
-			<div class="large-8 column">
-				<div class="data-value"><?php echo $element->position ? $element->position->name : 'None'?></div>
-			</div>
+	<?php }?>
+	<div class="row data-row">
+		<div class="large-4 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('position_id'))?>:</div>
 		</div>
-		<div class="row data-row">
-			<div class="large-4 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('intraoperative_aids'))?>:</div>
-			</div>
-			<div class="large-8 column">
-				<div class="data-value">
-					<?php foreach ($element->intraoperative_aids as $aid) {?>
-						<?php echo $aid->aid->name?><br/>
-					<?php }?>
-				</div>
-			</div>
+		<div class="large-8 column">
+			<div class="data-value"><?php echo $element->position ? $element->position->name : 'None'?></div>
 		</div>
-		<div class="row data-row">
-			<div class="large-4 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('diathermy'))?>:</div>
-			</div>
-			<div class="large-8 column">
-				<div class="data-value"><?php echo $element->diathermy ? 'Yes' : 'No'?></div>
+	</div>
+	<div class="row data-row">
+		<div class="large-4 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('intraoperative_aids'))?>:</div>
+		</div>
+		<div class="large-8 column">
+			<div class="data-value">
+				<?php foreach ($element->intraoperative_aids as $aid) {?>
+					<?php echo $aid->aid->name?><br/>
+				<?php }?>
 			</div>
 		</div>
 	</div>
-</section>
+	<div class="row data-row">
+		<div class="large-4 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('diathermy'))?>:</div>
+		</div>
+		<div class="large-8 column">
+			<div class="data-value"><?php echo $element->diathermy ? 'Yes' : 'No'?></div>
+		</div>
+	</div>
+</div>
+
