@@ -270,7 +270,6 @@ CREATE TABLE `ophcinursingtheatrerecord_intraoperative_aids_version` (
 	KEY `acv_ophcinursingtheatrerecord_ias_aid_fk` (`aid_id`),
 	KEY `acv_ophcinursingtheatrerecord_ias_lmui_fk` (`last_modified_user_id`),
 	KEY `acv_ophcinursingtheatrerecord_ias_cui_fk` (`created_user_id`),
-	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_ele_fk` FOREIGN KEY (`element_id`) REFERENCES `et_ophcinursingtheatrerecord_cataractsurgery` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_aid_fk` FOREIGN KEY (`aid_id`) REFERENCES `ophcinursingtheatrerecord_intraoperative_aid` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophcinursingtheatrerecord_ias_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
